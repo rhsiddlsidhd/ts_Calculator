@@ -93,6 +93,5 @@ $clear.addEventListener("click", clear);
 //render
 const render = (): void => {
   //가장 최근에 눌린 Input값을 보여줘야해 numberArrone / operator / numberArrTwo
-  const displayValue = `${numberArrOne} ${operatorArr} ${numberArrTwo}`;
-  $output.value = displayValue.trim();
+  $output.value = `${numberArrOne} ${operatorArr} ${numberArrTwo}`;
 };
