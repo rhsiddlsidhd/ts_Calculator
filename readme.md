@@ -11,10 +11,10 @@ CSS의 Grid 사용하여 UI를 구현해보고 클라이언트의 입력을 바�
 
 ## 기술스택
 
--HTML
--CSS
--Javascript
--Typescript
+- HTML
+- CSS
+- Javascript
+- Typescript
 
 ### 현재 개발 상태
 
