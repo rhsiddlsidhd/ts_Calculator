@@ -1,76 +1,17 @@
-const $number = document.querySelectorAll("[class^='number_']");
-const $operator = document.querySelectorAll("[class^='operator_']");
-const $clear = document.querySelector(".clear");
-const $btnEqual = document.querySelector(".btn_equal");
-const $output = document.querySelector(".output");
-let numberArrOne = "";
-let numberArrTwo = "";
 let operatorArr = "";
-//number
-const numberValue = (value) => {
-    operatorArr === "" ? (numberArrOne += value) : (numberArrTwo += value);
-    console.log({ numberArrOne });
-    console.log({ numberArrTwo });
-    render();
-};
-Array.from($number).forEach((it) => it.addEventListener("click", (e) => {
-    numberValue(e.target.value);
-}));
-//operator
-const operator = (value) => {
-    // + - * / % 5가지 경우
+let $calcuratorArr = [];
+// operatorArr 변수를 함수로 대체
+/**
+ * 변수를 직접 import 하여 사용하면 변수는 읽기 전용이 되어
+ * 이는 다른 파일에서 변수의 값을 직접 변경할수가 없다.
+ * 하지만 함수를 통해 변수에 값을 할당하는 방식을 사용하면,
+ * 함수 내부에서는 수정할 수 있고, 함수를 통해 값을 제어할 수 있다.
+ */
+const setOperatorArr = (value) => {
     operatorArr = value;
-    console.log({ operatorArr });
-    render();
 };
-//연산자에게 각자의 이벤트를 줌
-Array.from($operator).forEach((it) => it.addEventListener("click", (e) => operator(e.target.value)));
-//결과값  btnEqual
-const calculator = () => {
-    switch (operatorArr) {
-        case "+":
-            $output.value = (Number(numberArrOne) + Number(numberArrTwo)).toString();
-            break;
-        case "-":
-            $output.value = (Number(numberArrOne) - Number(numberArrTwo)).toString();
-            break;
-        case "*":
-            $output.value = (Number(numberArrOne) * Number(numberArrTwo)).toString();
-            break;
-        case "/":
-            $output.value = (Number(numberArrOne) / Number(numberArrTwo)).toString();
-            break;
-    }
-    numberArrOne = "";
-    numberArrTwo = "";
-    operatorArr = "";
+// $calcuratorArr = []; 해당 코드도 함수로 할당
+const $setCalcurator = () => {
+    $calcuratorArr = [];
 };
-$btnEqual.addEventListener("click", calculator);
-//지우기 기능
-const clear = () => {
-    /**
-     * 3가지 조건이 전부 가득차있을때
-     * two 에서 하나씩 지우기
-     * 2가지 조건이 차있을때는
-     * 연산자 지우기
-     * 첫번째 조건만 차있을때는
-     * one에서 지우기
-     */
-    if (numberArrTwo !== "") {
-        numberArrTwo = numberArrTwo.slice(0, -1);
-    }
-    else if (operatorArr !== "") {
-        operatorArr = "";
-    }
-    else if (numberArrOne !== "") {
-        numberArrOne = numberArrOne.slice(0, -1);
-    }
-    render();
-};
-$clear.addEventListener("click", clear);
-//render
-const render = () => {
-    //가장 최근에 눌린 Input값을 보여줘야해 numberArrone / operator / numberArrTwo
-    $output.value = `${numberArrOne} ${operatorArr} ${numberArrTwo}`;
-};
-export {};
+export { operatorArr, $calcuratorArr, setOperatorArr, $setCalcurator };
