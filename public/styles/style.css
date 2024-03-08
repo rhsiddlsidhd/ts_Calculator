@@ -63,11 +63,13 @@ input:hover {
   box-shadow: 1px 1px 2px 1px #333;
 }
 
+.number_0 {
+  grid-column: span 2;
+}
 .btn_equal {
   grid-column: span 2;
-  background-color: rgb(255, 51, 0);
 }
 
 .clear {
-  background-color: orange;
+  grid-column: span 3;
 }
