@@ -6,7 +6,7 @@ const isOperator = (value) => {
 };
 //operator
 const operator = (value) => {
-    // + - * / % 5가지 경우
+    // + - * / 4가지 경우
     if ($calcuratorArr.length !== 0 &&
         !isOperator($calcuratorArr[$calcuratorArr.length - 1])) {
         $calcuratorArr.push(value);
